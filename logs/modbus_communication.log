@@ -1,0 +1,214 @@
+2024-07-15 13:24:50,550 INFO IP Address: 192.168.88.252 and Port: 502 in use for Modbus server.
+2024-07-15 13:24:50,565 INFO Writing Bit array lengths in use: Input Array: 16 , Output Array: 16 to config file.
+2024-07-15 13:25:02,056 INFO IP Address: 192.168.88.252 and Port: 502 in use for Modbus server.
+2024-07-15 13:25:02,073 INFO Writing Bit array lengths in use: Input Array: 16 , Output Array: 16 to config file.
+2024-07-15 13:26:58,573 INFO Starting to load signals from JSON file
+2024-07-15 13:26:58,573 DEBUG Configuration file path: C:\Users\SHS1MT.DE\Desktop\web\log_files\modules.json
+2024-07-15 13:26:58,575 INFO Successfully loaded JSON data from "C:\Users\SHS1MT.DE\Desktop\web\log_files\modules.json"
+2024-07-15 13:26:58,577 INFO Fetched 33 existing signals from the database
+2024-07-15 13:26:58,577 DEBUG Existing signal pairs: {(25, 'Prog6', 7), (21, 'Prog2', 3), (41, 'ProgAck6', 7), (35, 'ProgAck0', 1), (48, '', 14), (38, 'ProgAck3', 4), (20, 'Prog1', 2), (50, '', 16), (46, 'Ok', 12), (27, 'En', 9), (32, '', 14), (40, 'ProgAck5', 6), (34, '', 16), (29, 'Ccw', 11), (44, 'NF', 10), (24, 'Prog5', 6), (39, 'ProgAck4', 5), (22, 'Prog3', 4), (30, 'ResRs', 12), (23, 'Prog4', 5), (43, 'Rdy', 9), (18, '', 0), (28, 'Cw', 10), (47, 'InCy', 13), (45, 'CyCmp', 11), (26, 'Prog7', 8), (36, 'ProgAck1', 2), (31, 'ResF', 13), (37, 'ProgAck2', 3), (42, 'ProgAck7', 8), (19, 'Prog0', 1), (33, '', 15), (49, 'EnAck', 15)}
+2024-07-15 13:26:58,577 DEBUG New signal pairs from JSON: {(25, 'Prog6', 7), (21, 'Prog2', 3), (41, 'ProgAck6', 7), (35, 'ProgAck0', 1), (48, '', 14), (38, 'ProgAck3', 4), (20, 'Prog1', 2), (50, '', 16), (46, 'Ok', 12), (27, 'En', 9), (32, '', 14), (40, 'ProgAck5', 6), (34, '', 16), (29, 'Ccw', 11), (44, 'NF', 10), (24, 'Prog5', 6), (39, 'ProgAck4', 5), (22, 'Prog3', 4), (30, 'ResRs', 12), (23, 'Prog4', 5), (43, 'Rdy', 9), (18, '', 0), (28, 'Cw', 10), (47, 'InCy', 13), (45, 'CyCmp', 11), (26, 'Prog7', 8), (36, 'ProgAck1', 2), (31, 'ResF', 13), (37, 'ProgAck2', 3), (42, 'ProgAck7', 8), (19, 'Prog0', 1), (33, '', 15), (49, 'EnAck', 15)}
+2024-07-15 13:26:58,577 INFO No changes detected. Signals are up-to-date.
+2024-07-15 13:26:58,578 INFO Completed loading signals from JSON file
+2024-07-15 13:26:58,605 INFO Modbus server started.
+2024-07-15 13:26:58,924 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 13:26:59,125 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 13:26:59,327 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 13:26:59,528 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 13:26:59,835 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:00,036 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:00,237 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:00,438 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:00,639 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:00,840 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:01,040 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:01,241 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:01,442 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:01,643 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:01,844 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:02,045 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:02,246 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:02,447 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:02,648 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:02,849 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:03,050 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:03,251 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:03,452 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:03,653 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:03,854 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:04,055 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:04,256 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:04,457 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:04,657 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:04,858 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:05,059 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:05,260 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:05,461 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:05,661 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:05,862 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:06,063 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:06,264 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:06,465 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:06,665 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:06,866 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:07,067 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:07,268 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:07,469 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:07,670 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:07,870 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:08,071 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:08,272 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:08,473 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:08,674 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:08,753 INFO Value written to the data bank (tool): 258.
+2024-07-15 13:27:08,875 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:09,165 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:09,366 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:09,567 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:09,768 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:09,968 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:10,170 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:10,370 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:10,571 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:10,772 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:10,973 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:11,174 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:11,375 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:11,575 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:11,777 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:11,978 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:12,178 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:12,380 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:12,581 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:12,782 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:12,983 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:13,184 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:13,385 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:13,585 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:13,786 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:13,988 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:14,039 INFO Value written to the data bank (tool): 0.
+2024-07-15 13:27:14,189 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:14,483 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:14,684 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:14,886 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:15,087 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:15,288 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:15,488 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:15,689 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:15,890 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:16,091 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:16,292 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:16,493 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:16,694 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:16,895 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:17,096 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:17,297 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:17,498 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:17,699 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:17,900 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:18,100 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:18,301 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:18,502 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:18,702 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:18,903 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:19,104 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:19,305 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:19,506 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:19,706 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:19,907 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:20,108 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:20,309 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:20,510 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:20,711 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:20,912 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:21,113 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:21,115 INFO Value written to the data bank (tool): 258.
+2024-07-15 13:27:21,314 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 13:27:21,616 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:21,817 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:22,018 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:22,219 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:22,419 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:22,621 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:22,822 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:23,023 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:23,223 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:23,424 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:23,625 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:23,827 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:24,028 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:24,229 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:24,430 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:24,631 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:24,831 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:25,032 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:25,233 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:25,434 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:25,635 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:25,836 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:26,037 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:26,238 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:26,439 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:26,640 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:26,841 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:27,042 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:27,244 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:27,445 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:27,646 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:27,846 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:28,048 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:28,249 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:28,450 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:28,650 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:28,851 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:29,052 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:29,253 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 13:27:29,454 INFO Checking for updates. Current state: [20226], Received bits: 0100111100000010
+2024-07-15 14:05:00,744 INFO IP Address: 192.168.88.253 and Port: 502 in use for Modbus server.
+2024-07-15 14:05:00,744 INFO Writing Bit array lengths in use: Input Array: 16 , Output Array: 16 to config file.
+2024-07-15 14:05:29,899 INFO Starting to load signals from JSON file
+2024-07-15 14:05:29,899 DEBUG Configuration file path: C:\Users\SHS1MT.DE\Desktop\web\log_files\modules.json
+2024-07-15 14:05:29,900 INFO Successfully loaded JSON data from "C:\Users\SHS1MT.DE\Desktop\web\log_files\modules.json"
+2024-07-15 14:05:29,900 INFO Fetched 33 existing signals from the database
+2024-07-15 14:05:29,900 DEBUG Existing signal pairs: {(43, 'Rdy', 9), (23, 'Prog4', 5), (38, 'ProgAck3', 4), (30, 'ResRs', 12), (27, 'En', 9), (19, 'Prog0', 1), (48, '', 14), (50, '', 16), (29, 'Ccw', 11), (32, '', 14), (35, 'ProgAck0', 1), (22, 'Prog3', 4), (34, '', 16), (41, 'ProgAck6', 7), (25, 'Prog6', 7), (31, 'ResF', 13), (44, 'NF', 10), (20, 'Prog1', 2), (45, 'CyCmp', 11), (37, 'ProgAck2', 3), (18, '', 0), (26, 'Prog7', 8), (39, 'ProgAck4', 5), (42, 'ProgAck7', 8), (24, 'Prog5', 6), (21, 'Prog2', 3), (46, 'Ok', 12), (47, 'InCy', 13), (36, 'ProgAck1', 2), (28, 'Cw', 10), (40, 'ProgAck5', 6), (49, 'EnAck', 15), (33, '', 15)}
+2024-07-15 14:05:29,900 DEBUG New signal pairs from JSON: {(43, 'Rdy', 9), (23, 'Prog4', 5), (38, 'ProgAck3', 4), (30, 'ResRs', 12), (27, 'En', 9), (19, 'Prog0', 1), (48, '', 14), (50, '', 16), (29, 'Ccw', 11), (32, '', 14), (35, 'ProgAck0', 1), (22, 'Prog3', 4), (34, '', 16), (41, 'ProgAck6', 7), (25, 'Prog6', 7), (31, 'ResF', 13), (44, 'NF', 10), (20, 'Prog1', 2), (45, 'CyCmp', 11), (37, 'ProgAck2', 3), (18, '', 0), (26, 'Prog7', 8), (39, 'ProgAck4', 5), (42, 'ProgAck7', 8), (24, 'Prog5', 6), (21, 'Prog2', 3), (46, 'Ok', 12), (47, 'InCy', 13), (36, 'ProgAck1', 2), (28, 'Cw', 10), (40, 'ProgAck5', 6), (49, 'EnAck', 15), (33, '', 15)}
+2024-07-15 14:05:29,900 INFO No changes detected. Signals are up-to-date.
+2024-07-15 14:05:29,900 INFO Completed loading signals from JSON file
+2024-07-15 14:05:29,926 INFO Modbus server started.
+2024-07-15 14:05:30,271 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 14:05:30,473 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 14:05:30,674 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 14:05:30,875 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 14:05:31,076 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 14:05:31,277 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 14:05:31,478 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 14:05:31,679 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 14:05:31,880 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 14:05:32,081 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 14:05:32,282 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 14:05:32,483 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 14:05:32,683 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 14:05:32,884 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 14:05:33,085 INFO Checking for updates. Current state: [0], Received bits: 0000000000000000
+2024-07-15 14:05:33,377 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:33,578 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:33,779 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:33,980 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:34,182 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:34,383 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:34,584 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:34,785 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:34,985 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:35,186 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:35,388 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:35,589 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:35,789 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:35,990 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:36,192 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:36,393 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:36,594 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:36,794 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:36,995 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:37,196 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000
+2024-07-15 14:05:37,397 INFO Checking for updates. Current state: [3840], Received bits: 0000111100000000

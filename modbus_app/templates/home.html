@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modbus Signals</title>
+    <style>
+        .indicator {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .red {
+            background-color: red;
+        }
+        .green {
+            background-color: green;
+        }
+
+        /* Slider Styles */
+        .slider {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        /* Grid Layout Styles */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .output-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Server Settings</h1>
+    <div>
+        <label for="server-ip">Server IP Address:</label>
+        <input type="text" id="server-ip" value="{{ ip_address }}">
+        <button type="button" onclick="changeServerSettings('ip')">Change IP</button>
+    </div>
+    <div>
+        <label for="server-port">Port:</label>
+        <input type="number" id="server-port" value="{{ port }}">
+        <button type="button" onclick="changeServerSettings('port')">Change Port</button>
+    </div>
+    <div>
+        <label for="tool-ip">Connected Tool IP Address:</label>
+        <input type="text" id="tool-ip" value="{{ tool_ip_address }}" readonly>
+        <span class="indicator red" id="tool-connection-status"></span>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h1>Inputs</h1>
+            <div>
+                <label for="input-program-number">Input Program Number:</label>
+                <input type="number" id="input-program-number" value="0" min="0">
+                <button type="button" onclick="incrementProgramNumber()">+</button>
+                <button type="button" onclick="decrementProgramNumber()">-</button>
+            </div>
+            <div>
+                <label for="input-signal">Input Signal:</label>
+                <input type="text" id="input-signal" maxlength="{{ max_length }}" size="{{ max_length }}">
+            </div>
+            <div>
+                <label for="continuous-tests">Continuous Tests:</label>
+                <input type="checkbox" id="continuous-tests">
+            </div>
+            <div>
+                <label for="with-counter-rotation">With Counter Rotation:</label>
+                <input type="checkbox" id="with-counter-rotation" disabled>
+            </div>
+            <div>
+                <label for="number-of-tests">Number of Tests:</label>
+                <input type="number" id="number-of-tests" min="1" disabled>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-container" id="inputs-container">
+                    {% for input in inputs %}
+                        <div class="section">
+                            <input type="range" min="0" max="1" step="1" value="{{ input.state }}" name="state_{{ input.id }}" class="slider input-slider" data-index="{{ forloop.counter0 }}" data-name="{{ input.name }}">
+                            <label>{{ input.name }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="button-container">
+                    <button type="submit" onclick="handleUpdateInputs(event)">Update Inputs</button>
+                    <button type="button" onclick="handleForceStop()">Force Stop</button>
+                    <button type="button" onclick="logoutAndClose()">Logout</button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <h1>Outputs</h1>
+            <div>
+                <label for="output-program-number">Output Program Number:</label>
+                <input type="text" id="output-program-number" readonly>
+            </div>
+            <div>
+                <label for="ok-runs">Ok Runs:</label>
+                <input type="text" id="ok-runs" value="{{ ok_counter }}" readonly>
+            </div>
+            <div class="output-container">
+                {% for output in outputs %}
+                    <div class="section">
+                        <span class="indicator {% if output.state == 1 %}green{% else %}red{% endif %}" id="output-{{ output.id }}" data-name="{{ output.name }}"></span>
+                        <label>{{ output.name }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const maxLength = '{{ max_length }}';
+
+        function changeServerSettings(type) {
+            const ip = document.getElementById('server-ip').value;
+            const port = document.getElementById('server-port').value;
+            fetch('{% url "change_server_settings" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+                body: `ip_address=${ip}&port=${port}`,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                    document.getElementById('server-ip').value = data.ip_address;
+                    document.getElementById('server-port').value = data.port;
+                } else {
+                    document.getElementById('server-ip').value = data.ip_address;
+                    document.getElementById('server-port').value = data.port;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // Function to calculate the maximum program number based on the number of "Prog" sliders
+        function calculateMaxProgramNumber() {
+            const progSliders = document.querySelectorAll('.input-slider[data-name*="Prog"]');
+            return Math.pow(2, progSliders.length) - 1;
+        }
+
+        // Function to update the input signal textbox based on the sliders
+        function updateInputSignalTextbox() {
+            const sliders = document.querySelectorAll('.input-slider');
+            let bits = '';
+            sliders.forEach(slider => {
+                bits = slider.value + bits;
+            });
+            document.getElementById('input-signal').value = bits;
+        }
+
+        // Function to update the sliders based on the input signal textbox
+        function updateSlidersFromTextbox() {
+            const bits = document.getElementById('input-signal').value;
+            const paddedBits = bits.padStart(maxLength, '0');  // Pad the bit string with zeros to make it dynamic length
+            const sliders = document.querySelectorAll('.input-slider');
+            sliders.forEach((slider, index) => {
+                const bitIndex = paddedBits.length - 1 - index;
+                slider.value = paddedBits[bitIndex];
+            });
+        }
+
+        // Function to update sliders based on the input program number
+        function updateSlidersFromProgramNumber() {
+            const programNumber = document.getElementById('input-program-number').value;
+            const binaryString = parseInt(programNumber, 10).toString(2).padStart(maxLength, '0');
+            const sliders = document.querySelectorAll('.input-slider[data-name*="Prog"]');
+            sliders.forEach((slider, index) => {
+                const bitIndex = binaryString.length - 1 - index;
+                slider.value = bitIndex >= 0 && binaryString[bitIndex] === '1' ? '1' : '0';
+            });
+            updateInputSignalTextbox();
+        }
+
+        // Function to update the input program number based on sliders
+        function updateProgramNumberFromSliders() {
+            const sliders = document.querySelectorAll('.input-slider[data-name*="Prog"]');
+            let binaryString = '';
+            sliders.forEach(slider => {
+                binaryString = slider.value + binaryString;
+            });
+            const programNumber = parseInt(binaryString, 2);
+            document.getElementById('input-program-number').value = programNumber;
+        }
+
+        // Function to update the output program number based on output indicators
+        function updateOutputProgramNumber() {
+            const indicators = document.querySelectorAll('.indicator[data-name*="ProgAck"]');
+            let binaryString = '';
+            indicators.forEach(indicator => {
+                const state = indicator.classList.contains('green') ? '1' : '0';
+                binaryString = state + binaryString;
+            });
+            const programNumber = parseInt(binaryString, 2);
+            document.getElementById('output-program-number').value = programNumber;
+        }
+
+        // Increment program number
+        function incrementProgramNumber() {
+            const programNumberInput = document.getElementById('input-program-number');
+            const maxProgramNumber = calculateMaxProgramNumber();
+            programNumberInput.value = Math.min(maxProgramNumber, parseInt(programNumberInput.value, 10) + 1);
+            updateSlidersFromProgramNumber();
+        }
+
+        // Decrement program number
+        function decrementProgramNumber() {
+            const programNumberInput = document.getElementById('input-program-number');
+            programNumberInput.value = Math.max(0, parseInt(programNumberInput.value, 10) - 1);
+            updateSlidersFromProgramNumber();
+        }
+
+        // Handle the "Continuous Tests" checkbox
+        document.getElementById('continuous-tests').addEventListener('change', function() {
+            const numberOfTestsInput = document.getElementById('number-of-tests');
+            const withCounterRotationInput = document.getElementById('with-counter-rotation');
+            numberOfTestsInput.disabled = !this.checked;
+            withCounterRotationInput.disabled = !this.checked;
+        });
+
+        // Handle the "Update Inputs" button click
+        function handleUpdateInputs(event) {
+            const continuousTests = document.getElementById('continuous-tests').checked;
+            const withCounterRotation = document.getElementById('with-counter-rotation').checked;
+            const numberOfTests = parseInt(document.getElementById('number-of-tests').value, 10);
+
+            if (continuousTests && numberOfTests > 0) {
+                event.preventDefault(); // Prevent the form from submitting
+
+                fetch('{% url "continuous_tests" %}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}',
+                    },
+                    body: JSON.stringify({ number_of_tests: numberOfTests, with_counter_rotation: withCounterRotation }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Continuous tests completed successfully.');
+                        document.getElementById('ok-runs').value = data.ok_counter; // Update Ok Runs counter
+                    } else {
+                        alert('Error during continuous tests.');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        }
+
+        // Add event listeners to sliders for real-time update of the textbox and program number
+        document.querySelectorAll('.input-slider').forEach(slider => {
+            slider.addEventListener('input', function() {
+                updateInputSignalTextbox();
+                updateProgramNumberFromSliders();
+            });
+        });
+
+        // Add event listener to the input signal textbox for real-time update of sliders
+        document.getElementById('input-signal').addEventListener('input', function() {
+            updateSlidersFromTextbox();
+            updateProgramNumberFromSliders();
+        });
+
+        // Add event listener to the input program number for real-time update of sliders and input signal bits
+        document.getElementById('input-program-number').addEventListener('input', updateSlidersFromProgramNumber);
+
+        // Initialize the input signal textbox and program number on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateInputSignalTextbox();
+            updateProgramNumberFromSliders();
+            document.getElementById('input-program-number').max = calculateMaxProgramNumber();
+        });
+
+        // Server-Sent Events for real-time output updates
+        const eventSource = new EventSource("{% url 'sse' %}");
+
+        eventSource.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+            data.forEach(function(output) {
+                const indicator = document.getElementById('output-' + output.id);
+                if (indicator) {
+                    if (output.state == 1) {
+                        indicator.classList.add('green');
+                        indicator.classList.remove('red');
+                    } else {
+                        indicator.classList.add('red');
+                        indicator.classList.remove('green');
+                    }
+                }
+            });
+            updateOutputProgramNumber();
+        };
+
+        eventSource.onerror = function(event) {
+            console.error('EventSource failed:', event);
+        };
+
+        // JavaScript for logout and close window
+        function logoutAndClose() {
+            fetch('{% url "logout" %}', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+            })
+            .then(() => {
+                // Attempt to close the browser window
+                setTimeout(function() {
+                    window.open('', '_self', ''); 
+                    window.close(); 
+                }, 1000); // Delay to allow server shutdown
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // Check Tool Connection Status
+        function checkToolConnection() {
+            fetch('{% url "check_tool_connection" %}')
+                .then(response => response.json())
+                .then(data => {
+                    const indicator = document.getElementById('tool-connection-status');
+                    if (data.connected) {
+                        indicator.classList.add('green');
+                        indicator.classList.remove('red');
+                    } else {
+                        indicator.classList.add('red');
+                        indicator.classList.remove('green');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        setInterval(checkToolConnection, 2000); // Check tool connection status every second
+
+        function handleForceStop() {
+            fetch('{% url "force_stop" %}', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Force stop executed successfully.');
+                } else {
+                    alert('Error during force stop.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
