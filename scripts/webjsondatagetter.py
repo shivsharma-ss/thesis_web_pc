@@ -11,7 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-logger = logging.getLogger('webjsondatagetter_log')
+logger = logging.getLogger('webjsondatagetter')
 
 def setup_django():
     import django
