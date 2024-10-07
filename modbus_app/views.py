@@ -139,13 +139,16 @@ def home(request):
     inputs = Signal.objects.filter(direction='in').order_by('port')
     outputs = Signal.objects.filter(direction='out').order_by('port')
 
+     # Read the latest OK_COUNTER value from the config file
+    ok_counter = config.get_current_config('CURRENT', 'OK_COUNTER')
+
     return render(request, 'home.html', {
         'inputs': inputs,
         'outputs': outputs,
         'ip_address': config.CURRENT_SERVER_IP_ADDRESS,
         'port': config.CURRENT_SERVER_PORT,
         'tool_ip_address': config.CURRENT_TOOL_IP_ADDRESS,
-        'ok_counter': config.OK_COUNTER,  # Pass the Ok Counter to the template
+        'ok_counter': ok_counter,  
         'max_length': max(max_input_port, max_output_port),
     })
 
@@ -427,9 +430,12 @@ def continuous_tests(request):
                 logger.info('Step 6 (counter rotation): Waited 0.4s')
                 in_counter_rotation = False
 
-        logger.info(f'Continuous tests completed with OK counter: {config.OK_COUNTER}')
+        # After the tests are completed
+        ok_counter = config.get_current_config('CURRENT', 'OK_COUNTER')
+        logger.info(f'Continuous tests completed with OK counter: {ok_counter}')
+        
         set_updated_bits_callback(update_outputs)  # Reset the callback to the original function
-        return JsonResponse({'success': True, 'ok_counter': config.OK_COUNTER})
+        return JsonResponse({'success': True, 'ok_counter': ok_counter})
     return JsonResponse({'error': 'Invalid request method'}, status=400)
 
 
