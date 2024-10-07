@@ -38,6 +38,9 @@ def update_current_config(section, key, value):
     with open(config_ini_path, 'w') as configfile:
         config.write(configfile)
 
+def get_current_config(section, key):
+    config.read(config_ini_path)  # Re-read the config file to get the latest values
+    return config.get(section, key)
 
 # Example usage to update CURRENT_SERVER_IP_ADDRESS
 # update_current_config('CURRENT', 'CURRENT_SERVER_IP_ADDRESS', '192.168.88.253')
